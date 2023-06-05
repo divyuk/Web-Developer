@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mongoose": "^7.2.2"
+  },
+  "name": "web-developer",
+  "description": "A Revisit repository for web developer.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
