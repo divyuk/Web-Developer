@@ -388,6 +388,21 @@ dis(user); // 23
 
 ```
 
+```
+Destructuring Example:
+const user = {
+    name : "Div",
+    age : 24,
+    work : "Developer"
+}
+
+function doing({name}){
+    console.log(name);
+}
+
+doing(user) // Div
+```
+
 
 ## 9. JS Is Single threaded
 
