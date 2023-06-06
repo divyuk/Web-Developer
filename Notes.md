@@ -387,3 +387,171 @@ dis(user); // 23
 
 
 ```
+
+
+## 9. JS Is Single threaded
+
+Javascript is Single threaded!!
+So it means it only execute one line of code at a given time.
+
+```
+console.log("Hello")
+setTimeout(function(){
+    console.log("Hi there")
+},3000);
+
+console.log("Bye")
+```
+
+In case of above code -> setTimeout is a Web API function, meaning when JS sees this function it gives to browser and says to remind me after 3sec and it goes to execute the next line. Browser counts 3 seconds and when its over it hands over to JS to execute it.
+
+
+
+## 10. Callback 
+It is a function which is passed as an argument and is executed when certain operation finishes or asynchronous operation completes. It allows to define behaviour that should happen after certain task
+completes.
+
+```
+function fetchData(url , callback){
+
+    setTimeout(()=>{
+        callback("this is your data");
+    },2000)
+}
+
+
+function displayData(d){
+    console.log("DATA...!!!  ---> ", d );
+}
+
+
+fetchData("https://something.com", displayData);
+```
+
+## 11. Callback Hell
+
+It refers to problem when there is nesting of callbacks and it really becomes confusing.
+
+```
+setTimeout(()=>{
+    document.body.style.backgroundColor = 'red'
+    setTimeout(()=>{
+        document.body.style.backgroundColor = 'orange'
+    setTimeout(()=>{
+        document.body.style.backgroundColor = 'green'
+
+    }, 1000 )
+    },1000)
+},1000)
+```
+
+```
+const delayColor = (color, delay , doNext)=>{
+    setTimeout(()=>{
+        document.body.style.backgroundColor=color
+        doNext && doNext();
+    },delay)
+
+}
+
+delayColor('red' , 1000 , ()=>{
+    delayColor('green' , 1000 , ()=>{
+        delayColor('yellow' , 1000)
+    })
+});
+```
+
+```
+Not a example of callback hell
+const greet = (name, callback) => {
+    console.log(`Hello, ${name}!`);
+    callback && callback();
+  };
+  
+  greet("Alice", greet("Bob", greet("Charlie")));
+```
+Therefore promises comes in picture.
+
+## 11. Promises
+
+It is an object representing eventual completion or failure of an asynchronous operation.
+
+Promise have 3 values
+1. Pending
+2. Reslved
+3. Rejected
+
+So the Promise object which we have, we attach callback to it according the value they recieve using then and catch method.
+
+
+```
+const fakeRequest = (url) =>{
+    return new Promise((resolve , reject) =>{
+        setTimeout(()=>{
+            reject("Rejecting");
+        },2000)
+    });
+};
+
+
+fakeRequest("/hero/1")
+    .then(()=>{
+        console.log("Resolved");
+    })
+    .catch((e)=>{
+        console.log("Eroor->" , e)
+    })
+
+```
+
+
+
+```
+const delayColor = (color , delay)=>{
+return new Promise((resolve , reject)=>{
+    setTimeout(()=>{
+    resolve();
+    document.body.style.backgroundColor=color;
+    },delay)})
+
+}
+
+
+delayColor('red' , 1000)
+.then(()=>delayColor('orange' , 1000))
+.then(()=>delayColor('purple' , 1000))
+```
+
+## 12. Async and Await
+
+These keywords helps us to write
+clean Promises.
+
+```
+async myfun(){
+    ..
+    ..
+}
+
+const login = async(user,psd)=>{
+
+}
+
+```
+
+await keyword waits for the promise to get resolved before going forward.
+
+
+```
+async function rainbow(){
+    await delayColor('red' , 1000);
+    await delayColor('orange' , 1000);
+    await delayColor('blue' , 1000);
+    
+}
+
+rainbow()
+
+```
+
+If a promise is rejected use try catch block!

@@ -52,15 +52,104 @@ let numbers= [1,2,3,4,5,6,7,8,9];
 // console.log(gold);
 
 
-const user = {
-    name : "Jhon",
-    email : "jh@rmail.com",
-    age : 23
-};
+// const user = {
+//     name : "Jhon",
+//     email : "jh@rmail.com",
+//     age : 23
+// };
 
 
-function dis({name,age}){
-    console.log(age);
+// function dis({name,age}){
+//     console.log(age);
+// }
+
+// dis(user);
+
+
+// const greet = (name, callback) => {
+//     console.log(`Hello, ${name}!`);
+//     callback && callback();
+//   };
+  
+//   greet("Alice", greet("Bob", greet("Charlie")));
+  
+
+
+
+
+
+
+
+
+
+// setTimeout(()=>{
+//     document.body.style.backgroundColor = 'red'
+//     setTimeout(()=>{
+//         document.body.style.backgroundColor = 'orange'
+//     setTimeout(()=>{
+//         document.body.style.backgroundColor = 'green'
+
+//     }, 1000 )
+//     },1000)
+// },1000)
+
+
+// const delayColor = (color, delay , doNext)=>{
+//     setTimeout(()=>{
+//         document.body.style.backgroundColor=color
+//         doNext && doNext();
+//     },delay)
+
+// }
+
+// delayColor('red' , 1000 , ()=>{
+//     delayColor('green' , 1000 , ()=>{
+//         delayColor('yellow' , 1000)
+//     })
+// });
+
+
+// const myData = (url)=>{
+//     return new Promise((resolve , reject)=>{
+//         setTimeout(()=>{
+//             resolve();
+//             console.log("Here is data");
+//         },2000)
+//     })
+// }
+
+
+// data = myData("Abds");
+
+// data.then(()=>{
+//     console.log("It works")
+// })
+
+
+
+
+
+const delayColor = (color , delay)=>{
+return new Promise((resolve , reject)=>{
+    setTimeout(()=>{
+    resolve();
+    document.body.style.backgroundColor=color;
+    },delay)})
+
 }
 
-dis(user);
+
+// delayColor('red' , 1000)
+// .then(()=>delayColor('orange' , 1000))
+// .then(()=>delayColor('purple' , 1000))
+
+
+
+// async function rainbow(){
+//     await delayColor('red' , 1000);
+//     await delayColor('orange' , 1000);
+//     await delayColor('blue' , 1000);
+    
+// }
+
+// rainbow()
