@@ -1,0 +1,16 @@
+.p1btn{
+    background-color: rgb(243, 160, 160);
+    
+}
+.p2btn{
+    background-color: rgb(213, 213, 249);
+}
+.p1btn:hover{
+    background-color: rgb(186, 234, 139);
+}
+.p2btn:hover{
+    background-color: rgb(234, 139, 225);
+}
+.tag{
+    color: crimson;
+}
