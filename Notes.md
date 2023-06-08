@@ -158,7 +158,7 @@ const myMath={
 
 myMath.square(3) or myMath["square"](4)
 ```
-
+ In JavaScript, when using an arrow function with curly braces, you need to explicitly add a return statement to return a value. However, if you omit the curly braces, the function implicitly returns the expression following the arrow (=>) symbol.
 
 #### 3. Array Methods
 
